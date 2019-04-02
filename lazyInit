@@ -1,0 +1,23 @@
+在组合关系中，我们可以通过以下的方式来初始化组合的引用。
+1，在定义对象中，这意味着他们总能够在构造器被调用之前被初始化
+2，在类的构造中
+3，就在正要使用这些对象之前，这种方式被称为惰性初始化。此方式不必每次都生成对象的情况下，可以减少额外的负担
+4，使用实例初始化。
+惰性初始化：
+class First{
+ First(){
+  System.out.print("First()");
+ }
+}
+
+public class Lazy{
+ First f;
+ public void print(){
+  if(f==null)
+      f = new First();
+ }
+ public static void main(String[] args){
+  Lazy z = new Lazy();
+  z.print();
+ }
+}
